@@ -1,1 +1,5 @@
 1.at fisrt for working with express we should download the express module with this command(npm i express )
+
+rout param :
+we call the part of link after the constant that changes for each page (Rout param)
+
