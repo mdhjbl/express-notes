@@ -3,3 +3,4 @@
 rout param :
 we call the part of link after the constant that changes for each page (Rout param)
 
+type of sending resposnse :
