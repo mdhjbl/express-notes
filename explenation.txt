@@ -3,3 +3,13 @@
 rout param :
 we call the part of link after the constant that changes for each page (Rout param)
 
+type of sending resposnse :
+res.send()
+res.end()
+res.json()
+without express when we want to send the resposnse we should set the constent-type but with express
+we dont need this 
+but whats the difference between them ? the .end() is not very common and most of the time we use .send()
+and about .json() it always it the json pattern.
+
+

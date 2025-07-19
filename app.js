@@ -23,6 +23,16 @@ const app = express()
     }
 })*/
 
+//!type of sending response
+// app.get('/' , ( req, res)=>{
+    // res.send("this response sended by .send()") --> the background is white
+    // res.end("this response sended by .end()") --> the background is black
+    // res.json("this response sended by .json()") --> put it on double cotation ""
+// })
+
+
+
+
 
 
 
