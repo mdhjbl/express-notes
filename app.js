@@ -40,6 +40,11 @@ const app = express()
 // Delete
 // app.delete("/languages/:id", (req, res) => res.send("Deleted!"));
 
+//* Receiving multiple route parameters in an API
+// app.get("/api/users/:userID/articles/:articleID", (req, res) => {
+//     res.send("mutiple route params ;)")
+// });
+// Reference: file://./notes.txt#L17
 
 
 

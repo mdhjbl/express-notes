@@ -13,3 +13,12 @@ but whats the difference between them ? the .end() is not very common and most o
 and about .json() it always it the json pattern.
 
 CRUD : create(post) , read(delete) , update(put) , delete(delete) 
+
+Receiving multiple route parameters in an API:
+In an API, you can define routes that accept multiple parameters by specifying them in the URL path with
+a colon (:) before each parameter name. These parameters can then be accessed in your request handler via
+req.params.
+
+
+
+
