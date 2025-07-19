@@ -30,6 +30,17 @@ const app = express()
     // res.json("this response sended by .json()") --> put it on double cotation ""
 // })
 
+//?develope API with CRUD with express
+// Create
+// app.post("/languages", (req, res) => res.status(201).send("Added!"));
+// Read
+// app.get("/languages", (req, res) => res.send("All languages"));
+// Update
+// app.put("/languages/:id", (req, res) => res.send("Updated!"));
+// Delete
+// app.delete("/languages/:id", (req, res) => res.send("Deleted!"));
+
+
 
 
 

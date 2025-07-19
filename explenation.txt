@@ -12,4 +12,4 @@ we dont need this
 but whats the difference between them ? the .end() is not very common and most of the time we use .send()
 and about .json() it always it the json pattern.
 
-
+CRUD : create(post) , read(delete) , update(put) , delete(delete) 
