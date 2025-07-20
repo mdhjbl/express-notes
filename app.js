@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 
+
 //!hello world basic api
 // app.get('/' , ( req, res)=>{
 //     res.send("Hello World :)")
@@ -44,7 +45,22 @@ const app = express()
 // app.get("/api/users/:userID/articles/:articleID", (req, res) => {
 //     res.send("mutiple route params ;)")
 // });
-// Reference: file://./notes.txt#L17
+// Reference: file://./explenation.txt#L17
+
+//!receiving request body
+// Middleware to parse JSON body
+// app.use(express.json());
+
+// Optional: also parse form-urlencoded data
+// app.use(express.urlencoded());
+
+// app.post("/api", (req, res) => {
+//     console.log(req.body);
+//     res.send(`Request body is: ${JSON.stringify(req.body)}`);
+// });
+// Reference: file://./explenation.txt#L22
+
+
 
 
 

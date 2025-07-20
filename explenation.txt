@@ -19,6 +19,12 @@ In an API, you can define routes that accept multiple parameters by specifying t
 a colon (:) before each parameter name. These parameters can then be accessed in your request handler via
 req.params.
 
+To receive the request body in the back-end, we use (req.body) and print it to the console.
+But if we don't include the following middleware, req.body will be undefined:
+Way 1: app.use(express.json()) → for handling JSON data
+Way 2: app.use(express.urlencoded()) → if the data is not in JSON format
+Notice: To access specific values from the request body (e.g., id), use: req.body.id
+
 
 
 
