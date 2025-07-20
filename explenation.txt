@@ -31,6 +31,15 @@ However, in newer versions of Express (4.16 and above), its functionality is alr
 using express.json() and express.urlencoded(), so you no longer need to install body-parser 
 separately unless you have specific needs.
 
+Connect to database with Mongoose:
+In a project that uses Express, you can use Mongoose to connect to a MongoDB database.
+First, install Mongoose with this command : npm i mongoose
+Then, create a folder called configs and inside it, make a file named db.js.
+Write the database connection code in db.js.
+After that, in your main file (like app.js), just require the db.js file 
+this will connect your app to the database.
+
+
 
 
 

@@ -71,7 +71,8 @@ const app = express()
 // app.use(bodyParser.urlencoded({ extended: false }));
 // Reference: file://./explenation.txt#L28
 
-
+//?connect to database with mongoose
+require('./configs/db')
 
 
 
