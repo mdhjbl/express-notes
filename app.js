@@ -60,7 +60,16 @@ const app = express()
 // });
 // Reference: file://./explenation.txt#L22
 
+//* Working with body-parser middleware
+// const bodyParser = require("body-parser");
 
+// Parse incoming JSON data and attach it to req.body
+// app.use(bodyParser.json());
+
+// Parse URL-encoded data (like from HTML forms)
+// extended: false => uses the classic querystring library
+// app.use(bodyParser.urlencoded({ extended: false }));
+// Reference: file://./explenation.txt#L28
 
 
 
