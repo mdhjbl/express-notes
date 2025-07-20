@@ -73,12 +73,29 @@ const app = express()
 
 //?connect to database with mongoose
 require('./configs/db')
+// Reference: file://./explenation.txt#L40
 
 
+//!creating first model wirh mongoose and document in the collection
+app.use(express.json());
+const languageModel = require('./Models/language') 
 
-
-
-
+app.post("/api/language" , (req,res)=>{
+    let {name , level} = req.body
+    if(name == '' || level == ''){          
+        res.status(422).json({               
+            message:"Data is not valid :("
+        })
+    }
+    else{
+        languageModel.create({           
+            name, level                
+        })
+        res.status(201).json({
+            message : "new language added successfully"
+        })  
+    }
+})
 
 app.listen(3000 , ()=>{
     console.log("server is running on port 3000 ")

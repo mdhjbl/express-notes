@@ -39,6 +39,15 @@ Write the database connection code in db.js.
 After that, in your main file (like app.js), just require the db.js file 
 this will connect your app to the database.
 
+Creating Model:
+In the database, we create one model for each collection. That means every collection has its
+own model connected to it.
+Mongoose helps us create models easily with a lot of useful features.
+We define a schema (or pattern) for the properties of each model. This schema tells Mongoose
+what kind of data to expect in each document of that collection.
+Create a folder named models, and inside that, make a separate file for each collection.
+
+
 
 
 
