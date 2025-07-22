@@ -82,12 +82,11 @@ const languageModel = require('./Models/language')
 
 app.post("/api/language" , (req,res)=>{
     let {name , level} = req.body
-    if(name == '' || level == ''){          
+    if(name === "" || level === ""){          
         res.status(422).json({               
             message:"Data is not valid :("
-        })
-    }
-    else{
+        });
+    }else{
         languageModel.create({           
             name, level                
         })
