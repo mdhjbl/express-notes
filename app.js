@@ -80,20 +80,49 @@ require('./configs/db')
 app.use(express.json());
 const languageModel = require('./Models/language') 
 
-app.post("/api/language" , (req,res)=>{
-    let {name , level} = req.body
-    if(name === "" || level === ""){          
-        res.status(422).json({               
-            message:"Data is not valid :("
-        });
-    }else{
-        languageModel.create({           
-            name, level                
-        })
-        res.status(201).json({
-            message : "new language added successfully"
-        })  
+// app.post("/api/language" , (req,res)=>{
+//     let {name , level} = req.body
+//     if(name === "" || level === ""){          
+//         res.status(422).json({               
+//             message:"Data is not valid :("
+//         });
+//     }else{
+//         languageModel.create({           
+//             name, level                
+//         })
+//         res.status(201).json({
+//             message : "new language added successfully"
+//         })  
+//     }
+// })
+
+//?req.body validation with fastest-validator
+const userModel = require('./Models/user') 
+const registerValidator = require('./validator/register')
+
+app.post('/api/users' , async(req , res)=>{
+    const validationResult = registerValidator(req.body)
+
+    if(validationResult != true){
+        res.status(422).json(validationResult);
     }
+    
+    let {name , username , age , email , password , confirmPassword} = req.body
+
+    const result = await userModel.create({
+        name,
+        username ,
+        age,
+        email,
+        password,
+        confirmPassword
+    })
+
+    res.status(201).json({
+        massege : "new user create successfully",
+        ...result
+    })
+
 })
 
 app.listen(3000 , ()=>{

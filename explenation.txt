@@ -46,3 +46,9 @@ Mongoose helps us create models easily with a lot of useful features.
 We define a schema (or pattern) for the properties of each model. This schema tells Mongoose
 what kind of data to expect in each document of that collection.
 Create a folder named models, and inside that, make a separate file for each collection.
+
+req.body validation with fastest-validator
+With this package and similar ones, we can validate the request body easily and quickly.
+For any object that is based on JavaScript, we can use this package.
+We create a validator folder, and inside it, we create a .js file for each object that needs
+a validator.
