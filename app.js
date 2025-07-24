@@ -112,25 +112,30 @@ const mongoose = require("mongoose");
 // });
 
 //!develop Api for removing user
-app.delete("/api/users/:id" , async(req, res)=>{
-    const {id} = req.params
-    if(mongoose.Types.ObjectId.isValid(id)){
-        const removedUser = await userModel.findByIdAndDelete({_id : id})
-        res.json({
-            message:"the user removed successfully"
-        })
-        if(!removedUser){
-            return res.status(404).json({
-                message : "there is not user with this id"
-            })
-        }
-    }else{
-        return res.status(404).json({
-            message: "this id is not valid !"
-        })
-    }
+// app.delete("/api/users/:id" , async(req, res)=>{
+//     const {id} = req.params
+//     if(mongoose.Types.ObjectId.isValid(id)){
+//         const removedUser = await userModel.findByIdAndDelete({_id : id})
+//         res.json({
+//             message:"the user removed successfully"
+//         })
+//         if(!removedUser){
+//             return res.status(404).json({
+//                 message : "there is not user with this id"
+//             })
+//         }
+//     }else{
+//         return res.status(404).json({
+//             message: "this id is not valid !"
+//         })
+//     }
 
-})
+// })
+
+//!Category Apies with Routers
+const userRouter = require("./routers/userRouter")
+app.use("/api/users" , userRouter)
+
 
 
 
