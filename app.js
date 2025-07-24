@@ -133,8 +133,8 @@ const mongoose = require("mongoose");
 // })
 
 //!Category Apies with Routers
-const userRouter = require("./routers/userRouter")
-app.use("/api/users" , userRouter)
+const userRouter = require("./routers/userRouter");
+app.use("/api/users", userRouter);
 
 
 
