@@ -100,30 +100,20 @@ const languageModel = require('./Models/language')
 const userModel = require('./Models/user') 
 const registerValidator = require('./validator/register')
 
-app.post('/api/users' , async(req , res)=>{
-    const validationResult = registerValidator(req.body)
+//!2 types for objectID validation
+//? way 1 const {isValidObjectID} = require("mongoose")
+//? way 1 const mongoose = require("mongoose");
 
-    if(validationResult != true){
-        res.status(422).json(validationResult);
-    }
-    
-    let {name , username , age , email , password , confirmPassword} = req.body
+// app.get("/users/:id", (req, res) => {
+    // const { id } = req.params;
+    // console.log(id);
+    //? way 1 res.send(isValidObjectID(id))
+    //? way 2 res.send(mongoose.Types.ObjectId.isValid(id));
+// });
 
-    const result = await userModel.create({
-        name,
-        username ,
-        age,
-        email,
-        password,
-        confirmPassword
-    })
 
-    res.status(201).json({
-        massege : "new user create successfully",
-        ...result
-    })
 
-})
+
 
 app.listen(3000 , ()=>{
     console.log("server is running on port 3000 ")

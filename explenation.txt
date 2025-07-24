@@ -52,3 +52,7 @@ With this package and similar ones, we can validate the request body easily and 
 For any object that is based on JavaScript, we can use this package.
 We create a validator folder, and inside it, we create a .js file for each object that needs
 a validator.
+
+Before the id is used to query the database, it should be validated to ensure it's a valid 
+MongoDB ObjectId. Otherwise,the backend may crash or throw an error during the database operation.
+
