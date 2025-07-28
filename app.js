@@ -134,8 +134,14 @@ const mongoose = require("mongoose");
 
 //!Category Apies with Routers
 const userRouter = require("./routers/userRouter");
-app.use("/api/users", userRouter);
+// app.use("/api/users", userRouter);
 
+//?describe middleware
+app.use("/api/users", (req, res, next) => {
+    console.log("Middleware Runned!");
+    next();
+}, userRouter);
+// Reference: file://./explenation.txt#L59
 
 
 

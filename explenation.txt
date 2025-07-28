@@ -55,3 +55,13 @@ a validator.
 
 Before the id is used to query the database, it should be validated to ensure it's a valid 
 MongoDB ObjectId. Otherwise,the backend may crash or throw an error during the database operation.
+
+What is Middleware?
+Middleware is a function that comes between the request and the response in a web server 
+It can modify the request or response, run code, end the request, or pass control to the 
+next middleware.
+Think of it as a pipeline through which every HTTP request flows.
+
+the difference between global and local Middleware : Global middleware is applied to all routes
+in the application,while local middleware is applied to specific routes only.
+
