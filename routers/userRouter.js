@@ -32,6 +32,7 @@ const userRouter = express.Router();
 const userControllers = require("../controllers/userController");
 
 userRouter.delete("/:id", userControllers.deleteUser);
+userRouter.post("/", userControllers.addUser);
 
 module.exports = userRouter;
 
