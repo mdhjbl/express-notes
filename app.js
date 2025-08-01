@@ -144,20 +144,27 @@ app.use("/api/users", (req, res, next) => {
 // Reference: file://./explenation.txt#L59
 
 //!local middleware
-app.get(
-    "/api/test",
-    (res , req ,next)=>{
-        console.log("first middleware Runned !")
-        next()
-    },
-    (res , req , next)=>{
-        console.log("second middleware runnded !")
-        next()
-    },
-    (req,res)=>{
-        console.log("okay!")
-    }
-)
+// app.get(
+//     "/api/test",
+//     (res , req ,next)=>{
+//         console.log("first middleware Runned !")
+//         next()
+//     },
+//     (res , req , next)=>{
+//         console.log("second middleware runnded !")
+//         next()
+//     },
+//     (req,res)=>{
+//         console.log("okay!")
+//     }
+// )
+
+//!global middleware
+const {testMiddleWare} = require("./middlewares/test")
+app.use(testMiddleWare)
+app.get("/api/test" , (req , res)=>{
+    console.log("okay!")
+})
 
 
 
