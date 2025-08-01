@@ -96,6 +96,7 @@ exports.getUser = async (req, res) => {
 
 
 exports.getAllUsers = async (req, res) => {
+    console.log("req.user : " , req.user)
     try {
         const users = await userModel.find();
         res.json(users);

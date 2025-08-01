@@ -65,3 +65,8 @@ Think of it as a pipeline through which every HTTP request flows.
 the difference between global and local Middleware : Global middleware is applied to all routes
 in the application,while local middleware is applied to specific routes only.
 
+one js point = we can add a property to object after built it for example 
+let obj = {id : 1}
+obj.username --> output = undefined
+obj.username = "alex123" //set new property
+obj.username --> output = "alex123"
