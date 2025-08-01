@@ -67,3 +67,43 @@ exports.addUser = async (req, res) => {
     }
 };
 
+exports.getUser = async (req, res) => {
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).json({
+            message: "This ID is not valid!"
+        });
+    }
+
+    try {
+        const user = await userModel.findById(id);
+
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found"
+            });
+        }
+
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({
+            message: "Something went wrong",
+            error: error.message
+        });
+    }
+};
+
+
+exports.getAllUsers = async (req, res) => {
+    try {
+        const users = await userModel.find();
+        res.json(users);
+    } catch (error) {
+        res.status(500).json({
+            message: "Something went wrong",
+            error: error.message
+        });
+    }
+};
+

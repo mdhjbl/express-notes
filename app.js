@@ -137,10 +137,10 @@ const userRouter = require("./routers/userRouter");
 // app.use("/api/users", userRouter);
 
 //?describe middleware
-app.use("/api/users", (req, res, next) => {
-    console.log("Middleware Runned!");
-    next();
-}, userRouter);
+// app.use("/api/users", (req, res, next) => {
+//     console.log("Middleware Runned!");
+//     next();
+// }, userRouter);
 // Reference: file://./explenation.txt#L59
 
 //!local middleware
@@ -160,11 +160,14 @@ app.use("/api/users", (req, res, next) => {
 // )
 
 //!global middleware
-const {testMiddleWare} = require("./middlewares/test")
-app.use(testMiddleWare)
-app.get("/api/test" , (req , res)=>{
-    console.log("okay!")
-})
+// const {testMiddleWare} = require("./middlewares/test")
+// app.use(testMiddleWare)
+// app.get("/api/test" , (req , res)=>{
+//     console.log("okay!")
+// })
+
+app.use("/api/users" , userRouter)
+
 
 
 

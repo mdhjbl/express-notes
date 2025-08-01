@@ -26,13 +26,17 @@
 //     });
 // });
 
+const isAdminMiddleWare = require("../middlewares/isadmin")
 const express = require("express");
+const userControllers = require("../controllers/userController");
 const userRouter = express.Router();
 
-const userControllers = require("../controllers/userController");
+userRouter.use(isAdminMiddleWare)
 
 userRouter.delete("/:id", userControllers.deleteUser);
 userRouter.post("/", userControllers.addUser);
+userRouter.get("/", userControllers.getAllUsers);
+userRouter.get("/:id", userControllers.getUser);
 
 module.exports = userRouter;
 
