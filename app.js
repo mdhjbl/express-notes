@@ -143,6 +143,22 @@ app.use("/api/users", (req, res, next) => {
 }, userRouter);
 // Reference: file://./explenation.txt#L59
 
+//!local middleware
+app.get(
+    "/api/test",
+    (res , req ,next)=>{
+        console.log("first middleware Runned !")
+        next()
+    },
+    (res , req , next)=>{
+        console.log("second middleware runnded !")
+        next()
+    },
+    (req,res)=>{
+        console.log("okay!")
+    }
+)
+
 
 
 app.listen(3000 , ()=>{
