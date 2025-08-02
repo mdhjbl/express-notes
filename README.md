@@ -230,3 +230,32 @@ Morgan provides several predefined formats:
 - `combined` – standard Apache combined log output (more detailed)
 
 You can choose the one that fits your needs.
+
+
+## Query Parameters
+
+Query parameters are used to send key-value data through the URL, usually for filtering, sorting, or pagination.
+
+### Example
+
+A URL with query parameters:
+
+```
+/users?age=25&country=US
+```
+
+In Express, you can access query parameters using `req.query`:
+
+```js
+app.get('/users', (req, res) => {
+  console.log(req.query.age);      // 25
+  console.log(req.query.country);  // US
+});
+```
+
+### Notes
+
+- Query parameters are always strings.
+- They are optional.
+- Multiple parameters can be passed using `&` between them.
+

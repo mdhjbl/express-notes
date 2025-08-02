@@ -169,18 +169,25 @@ const userRouter = require("./routers/userRouter");
 app.use("/api/users" , userRouter)
 
 //?test the morgan package
-const morgan = require("morgan")
-app.use(morgan("tiny"))
-app.use(morgan("combined"))
-app.use(morgan("common"))
-app.use(morgan("dev"))
-app.use(morgan("short"))
-app.get("/api/test-morgan" , (res , req)=>{
-    req.json({
-        message : "HI "
-    })
-})
+// const morgan = require("morgan")
+// app.use(morgan("tiny"))
+// app.use(morgan("combined"))
+// app.use(morgan("common"))
+// app.use(morgan("dev"))
+// app.use(morgan("short"))
+// app.get("/api/test-morgan" , (res , req)=>{
+//     req.json({
+//         message : "HI "
+//     })
+// })
 
+//!Query params 
+app.get("/api/test", (req, res) => {
+    console.log(req.query);
+    res.json({
+        message: "HI "
+    });
+});
 
 
 
