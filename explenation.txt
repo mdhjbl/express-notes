@@ -70,3 +70,11 @@ let obj = {id : 1}
 obj.username --> output = undefined
 obj.username = "alex123" //set new property
 obj.username --> output = "alex123"
+
+types of middleware : 
+1.Application-level middleware
+2.Router-level middleware
+3.Error-handling middleware
+4.Built-in middleware
+5.Third-party middleware
+link : https://expressjs.com/en/guide/using-middleware.html
