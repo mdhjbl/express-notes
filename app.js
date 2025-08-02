@@ -134,6 +134,7 @@ const mongoose = require("mongoose");
 
 //!Category Apies with Routers
 const userRouter = require("./routers/userRouter");
+const { default: camelcaseKeys } = require('camelcase-keys');
 // app.use("/api/users", userRouter);
 
 //?describe middleware
@@ -182,11 +183,34 @@ app.use("/api/users" , userRouter)
 // })
 
 //!Query params 
-app.get("/api/test", (req, res) => {
-    console.log(req.query);
-    res.json({
-        message: "HI "
-    });
+// app.get("/api/test", (req, res) => {
+//     console.log(req.query);
+//     res.json({
+//         message: "HI "
+//     });
+// });
+
+//!using camelcase middleware 
+app.use(express.json());
+const camelCaseKeys = async (...args) => {
+  const { default: camelcaseKeys } = await import("camelcase-keys");
+  return camelcaseKeys(...args, { deep: true });
+};
+const camelCase = async (req, res, next) => {
+  try {
+    req.body = await camelCaseKeys(req.body);
+    console.log("After camelCase:", req.body);
+    next();
+  } catch (error) {
+    next(error);
+  }
+};
+app.use("/api/test", camelCase);
+app.post("/api/test", (req, res) => {
+  res.json({
+    message: "HI ",
+    body: req.body,
+  });
 });
 
 
