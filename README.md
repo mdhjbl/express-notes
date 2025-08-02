@@ -198,3 +198,35 @@ console.log(obj.username); // "alex123"
 5. Third-party middleware
 
 [Express Middleware Docs](https://expressjs.com/en/guide/using-middleware.html)
+
+## Working with Morgan Package
+
+Morgan is a third-party middleware package used as a logger in Express applications.  
+It helps log incoming HTTP requests in different formats.
+
+### Installation
+
+```bash
+npm i morgan
+```
+
+### Usage
+
+After installing, you can use it in your Express app like this:
+
+```js
+const morgan = require('morgan');
+app.use(morgan('dev'));
+```
+
+### Available Logging Formats
+
+Morgan provides several predefined formats:
+
+- `dev` – concise output colored by response status
+- `tiny` – minimal output
+- `short` – short output including response time
+- `common` – standard Apache common log output
+- `combined` – standard Apache combined log output (more detailed)
+
+You can choose the one that fits your needs.
