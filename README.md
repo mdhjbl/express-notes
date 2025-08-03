@@ -199,6 +199,8 @@ console.log(obj.username); // "alex123"
 
 [Express Middleware Docs](https://expressjs.com/en/guide/using-middleware.html)
 
+---
+
 ## Working with Morgan Package
 
 Morgan is a third-party middleware package used as a logger in Express applications.  
@@ -231,6 +233,7 @@ Morgan provides several predefined formats:
 
 You can choose the one that fits your needs.
 
+---
 
 ## Query Parameters
 
@@ -258,6 +261,7 @@ app.get('/users', (req, res) => {
 - Query parameters are always strings.
 - They are optional.
 - Multiple parameters can be passed using `&` between them.
+---
 
 ## omit-empty Middleware
 
@@ -272,3 +276,5 @@ This middleware automatically removes any empty properties from the request body
 - Removes keys with empty strings (`""`)
 - Removes keys with `null` or `undefined`
 - Can be customized to omit other falsy or empty values if needed
+
+---
