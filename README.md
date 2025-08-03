@@ -298,3 +298,13 @@ This middleware automatically removes any empty properties from the request body
 npm install helmet
  
 ---
+
+## CORS Middleware
+
+Enables cross-origin requests so frontend apps (e.g., React on `localhost:5173`) can communicate with the backend.
+
+### Usage
+
+```js
+const cors = require("cors");
+app.use(cors());

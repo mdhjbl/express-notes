@@ -167,7 +167,7 @@ const { default: camelcaseKeys } = require('camelcase-keys');
 //     console.log("okay!")
 // })
 
-app.use("/api/users" , userRouter)
+
 
 //?test the morgan package
 // const morgan = require("morgan")
@@ -231,14 +231,20 @@ app.use("/api/users" , userRouter)
 // })
 
 //?testing helmet middleware
-const helmet = require("helmet")
-app.use(helmet())
-app.get("/api/test" , (req , res) =>{
-  console.log("HEY")
-  res.json({
-    message : "HI"
-  })
-})
+// const helmet = require("helmet")
+// app.use(helmet())
+// app.get("/api/test" , (req , res) =>{
+//   console.log("HEY")
+//   res.json({
+//     message : "HI"
+//   })
+// })
+
+//!testing cors middleware
+const cors = require("cors")
+app.use(cors())
+app.use("/api/users" , userRouter)
+
 
 
 
