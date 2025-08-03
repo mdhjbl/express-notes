@@ -259,3 +259,16 @@ app.get('/users', (req, res) => {
 - They are optional.
 - Multiple parameters can be passed using `&` between them.
 
+## omit-empty Middleware
+
+This middleware automatically removes any empty properties from the request body (or any specified object). It helps keep your data clean by omitting:
+
+- Empty strings (`""`)
+- `null` values
+- `undefined` values
+
+### Features
+
+- Removes keys with empty strings (`""`)
+- Removes keys with `null` or `undefined`
+- Can be customized to omit other falsy or empty values if needed

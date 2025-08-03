@@ -191,27 +191,44 @@ app.use("/api/users" , userRouter)
 // });
 
 //!using camelcase middleware 
-app.use(express.json());
-const camelCaseKeys = async (...args) => {
-  const { default: camelcaseKeys } = await import("camelcase-keys");
-  return camelcaseKeys(...args, { deep: true });
-};
-const camelCase = async (req, res, next) => {
-  try {
-    req.body = await camelCaseKeys(req.body);
-    console.log("After camelCase:", req.body);
-    next();
-  } catch (error) {
-    next(error);
+// app.use(express.json());
+// const camelCaseKeys = async (...args) => {
+//   const { default: camelcaseKeys } = await import("camelcase-keys");
+//   return camelcaseKeys(...args, { deep: true });
+// };
+// const camelCase = async (req, res, next) => {
+//   try {
+//     req.body = await camelCaseKeys(req.body);
+//     console.log("After camelCase:", req.body);
+//     next();
+//   } catch (error) {
+//     next(error);
+//   }
+// };
+// app.use("/api/test", camelCase);
+// app.post("/api/test", (req, res) => {
+//   res.json({
+//     message: "HI ",
+//     body: req.body,
+//   });
+// });
+
+//!testing omit-empty middleware
+const omitEmpty = require('omit-empty');
+const removeEmptyFiels = (options) =>{
+  return function (req , res , next){
+    req.body = omitEmpty(req.body , options)
+    console.log(req.body)
+    next()
   }
-};
-app.use("/api/test", camelCase);
-app.post("/api/test", (req, res) => {
+}
+app.use(removeEmptyFiels({omitZero : true}))
+app.get("/api/test" , (req , res) =>{
+  console.log("HEY")
   res.json({
-    message: "HI ",
-    body: req.body,
-  });
-});
+    message : "HI"
+  })
+})
 
 
 
