@@ -214,15 +214,25 @@ app.use("/api/users" , userRouter)
 // });
 
 //!testing omit-empty middleware
-const omitEmpty = require('omit-empty');
-const removeEmptyFiels = (options) =>{
-  return function (req , res , next){
-    req.body = omitEmpty(req.body , options)
-    console.log(req.body)
-    next()
-  }
-}
-app.use(removeEmptyFiels({omitZero : true}))
+// const omitEmpty = require('omit-empty');
+// const removeEmptyFiels = (options) =>{
+//   return function (req , res , next){
+//     req.body = omitEmpty(req.body , options)
+//     console.log(req.body)
+//     next()
+//   }
+// }
+// app.use(removeEmptyFiels({omitZero : true}))
+// app.get("/api/test" , (req , res) =>{
+//   console.log("HEY")
+//   res.json({
+//     message : "HI"
+//   })
+// })
+
+//?testing helmet middleware
+const helmet = require("helmet")
+app.use(helmet())
 app.get("/api/test" , (req , res) =>{
   console.log("HEY")
   res.json({

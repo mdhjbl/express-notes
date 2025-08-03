@@ -278,3 +278,23 @@ This middleware automatically removes any empty properties from the request body
 - Can be customized to omit other falsy or empty values if needed
 
 ---
+
+## Helmet Middleware
+
+[Helmet](https://www.npmjs.com/package/helmet) helps secure your Express app by setting various HTTP headers. It's a recommended best practice for protecting your app from some well-known web vulnerabilities.
+
+### Features
+
+- Sets security-related HTTP headers
+- Helps protect against common attacks like:
+  - Cross-Site Scripting (XSS)
+  - Clickjacking
+  - MIME-sniffing
+- Easy to use and configure
+
+### Installation
+
+```bash
+npm install helmet
+ 
+---
