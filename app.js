@@ -241,11 +241,18 @@ const { default: camelcaseKeys } = require('camelcase-keys');
 // })
 
 //!testing cors middleware
-const cors = require("cors")
-app.use(cors())
-app.use("/api/users" , userRouter)
+// const cors = require("cors")
+// app.use(cors())
+// app.use("/api/users" , userRouter)
+
+//!sending html file for response 
+const path = require("path")
+app.use(express.static(path.join(__dirname, "public")));
 
 
+app.get("/clock", (req, res) => {
+    res.sendFile(path.join(__dirname, "views", "index.html"));
+});
 
 
 app.listen(3000 , ()=>{
