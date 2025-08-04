@@ -265,6 +265,19 @@ app.get("/clock", (req, res) => {
     res.sendFile(path.join(viewsPath, "index.html"));
 });
 
+//?handlignt he 404 error for not founding the page
+app.use((req ,res , next)=>{
+    return res.status(404).sendFile(path.join(viewsPath , "404.html"))
+})
+// app.use((req , res, next)=>{
+//     return res.status(404).json({
+//         error : {
+//             type : "NOt found",
+//             message : "404 test massage"
+//         }
+//     })
+// })
+
 
 app.listen(3000 , ()=>{
     console.log("server is running on port 3000 ")
