@@ -246,12 +246,23 @@ const { default: camelcaseKeys } = require('camelcase-keys');
 // app.use("/api/users" , userRouter)
 
 //!sending html file for response 
+// const path = require("path")
+// app.use(express.static(path.join(__dirname, "public")));
+
+
+// app.get("/clock", (req, res) => {
+//     res.sendFile(path.join(__dirname, "views", "index.html"));
+// });
+
+//!develope helper for path
+
 const path = require("path")
+const viewsPath = require('./utils/viewsPath');
 app.use(express.static(path.join(__dirname, "public")));
 
 
 app.get("/clock", (req, res) => {
-    res.sendFile(path.join(__dirname, "views", "index.html"));
+    res.sendFile(path.join(viewsPath, "index.html"));
 });
 
 
