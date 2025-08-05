@@ -308,3 +308,72 @@ Enables cross-origin requests so frontend apps (e.g., React on `localhost:5173`)
 ```js
 const cors = require("cors");
 app.use(cors());
+
+---
+## 🔗 Types of Database Relationships
+
+In relational databases, relationships define how data in one table connects to data in another. The three most common types are:
+
+---
+
+### 1. 🧍 One-to-One (1:1)
+
+**Definition:**  
+A single record in one table is related to only one record in another table — and vice versa.
+
+**Example:**  
+Each user has exactly one profile.
+
+- `User` table  
+- `UserProfile` table (with a foreign key pointing to `User`)
+
+**Schema Example:**
+
+| User       | UserProfile       |
+|------------|-------------------|
+| id         | id                |
+| name       | user_id (FK)      |
+| email      | bio               |
+
+---
+
+### 2. 🔁 One-to-Many (1:N)
+
+**Definition:**  
+A single record in one table can be associated with many records in another table,  
+but each record in the second table relates back to only one record in the first.
+
+**Example:**  
+A blog post can have many comments, but each comment belongs to one post.
+
+**Schema Example:**
+
+| Post       | Comment           |
+|------------|-------------------|
+| id         | id                |
+| title      | post_id (FK)      |
+| content    | comment_text      |
+
+---
+
+### 3. 🔗 Many-to-Many (M:N)
+
+**Definition:**  
+Multiple records in one table can be related to multiple records in another table.
+
+**Example:**  
+Students can enroll in many courses, and each course can have many students.
+
+**Solution:**  
+Use a **junction (join) table** to model the relationship.
+
+**Schema Example:**
+
+| Student    | Enrollment        | Course            |
+|------------|-------------------|-------------------|
+| id         | student_id (FK)   | id                |
+| name       | course_id (FK)    | title             |
+
+---
+
+> ✅ Use foreign keys to establish these relationships and maintain data integrity.
