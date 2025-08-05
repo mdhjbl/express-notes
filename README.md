@@ -308,6 +308,7 @@ Enables cross-origin requests so frontend apps (e.g., React on `localhost:5173`)
 ```js
 const cors = require("cors");
 app.use(cors());
+```
 
 ---
 ## 🔗 Types of Database Relationships
