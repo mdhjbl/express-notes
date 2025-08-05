@@ -256,19 +256,19 @@ const { default: camelcaseKeys } = require('camelcase-keys');
 
 //!develope helper for path
 
-const path = require("path")
-const viewsPath = require('./utils/viewsPath');
-app.use(express.static(path.join(__dirname, "public")));
+// const path = require("path")
+// const viewsPath = require('./utils/viewsPath');
+// app.use(express.static(path.join(__dirname, "public")));
 
 
-app.get("/clock", (req, res) => {
-    res.sendFile(path.join(viewsPath, "index.html"));
-});
+// app.get("/clock", (req, res) => {
+//     res.sendFile(path.join(viewsPath, "index.html"));
+// });
 
 //?handlignt he 404 error for not founding the page
-app.use((req ,res , next)=>{
-    return res.status(404).sendFile(path.join(viewsPath , "404.html"))
-})
+// app.use((req ,res , next)=>{
+//     return res.status(404).sendFile(path.join(viewsPath , "404.html"))
+// })
 // app.use((req , res, next)=>{
 //     return res.status(404).json({
 //         error : {
@@ -277,6 +277,22 @@ app.use((req ,res , next)=>{
 //         }
 //     })
 // })
+
+
+//!add new teacher and courses to db
+// const courseModel = require("./Models/course")
+// const teacherModel = require("./Models/teacher")
+// app.get("/api/course" , async(req , res)=>{
+//     await courseModel.create({
+//         title : "html & css",
+//         teacher : "6891ed4000447f2def8e047e"
+//     })
+// })
+
+//!add router for getting all the courses with teachers
+const courseRouter = require("./routers/courseRouter")
+app.use("/api/courses" , courseRouter)
+
 
 
 app.listen(3000 , ()=>{

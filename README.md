@@ -315,8 +315,6 @@ app.use(cors());
 
 In relational databases, relationships define how data in one table connects to data in another. The three most common types are:
 
----
-
 ### 1. 🧍 One-to-One (1:1)
 
 **Definition:**  
@@ -336,7 +334,6 @@ Each user has exactly one profile.
 | name       | user_id (FK)      |
 | email      | bio               |
 
----
 
 ### 2. 🔁 One-to-Many (1:N)
 
@@ -355,7 +352,6 @@ A blog post can have many comments, but each comment belongs to one post.
 | title      | post_id (FK)      |
 | content    | comment_text      |
 
----
 
 ### 3. 🔗 Many-to-Many (M:N)
 
@@ -377,4 +373,3 @@ Use a **junction (join) table** to model the relationship.
 
 ---
 
-> ✅ Use foreign keys to establish these relationships and maintain data integrity.
