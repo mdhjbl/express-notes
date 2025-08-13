@@ -1,15 +1,13 @@
 const mongoose = require("mongoose");
+const {teacherSchema} = require("../Models/teacher")
 
-const courseSchema = new mongoose.Schema({
+const courseModel = new mongoose.Schema({
     title: {
         type: String,
     },
     teacher : {
-        type: mongoose.Types.ObjectId,
-        ref:"teacher"
+        type: teacherSchema
     }
 });
-
-const courseModel = mongoose.model("course", courseSchema);
 
 module.exports = courseModel;
