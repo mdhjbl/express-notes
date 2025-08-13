@@ -8,7 +8,13 @@ const courseModel = mongoose.model("course" , {
     },
     teacher : {
         type: teacherSchema
-    }
+    },
+    comment : [
+        {
+            type : mongoose.Types.ObjectId,
+            ref : "comment"
+        }
+    ]
 })
 
 module.exports = courseModel;
