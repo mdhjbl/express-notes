@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 
-const teacherSchema = new mongoose.Schema({
+const teacherSchema = mongoose.Schema({
     fullName: {
-        type: String
+        type: String,
+        required : true
     },
 });
 
