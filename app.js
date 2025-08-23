@@ -293,6 +293,22 @@ const { default: camelcaseKeys } = require('camelcase-keys');
 const courseRouter = require("./routers/courseRouter")
 app.use("/api/courses" , courseRouter)
 
+//?add new course with its teacher with embedded relation (one-to-many)
+const { teacherModel }= require("./Models/teacher");
+const courseModel = require('./Models/course');
+
+app.get("/newcourse" , async(req, res)=>{
+    const teacher = await teacherModel.findOne({
+        _id : "68879125cf2d232b8516f63b"
+    })
+    courseModel.create({
+        title : "Frech" ,
+        teacher : teacher._id
+    })
+    res.json(teacher)
+})
+
+
 
 
 app.listen(3000 , ()=>{

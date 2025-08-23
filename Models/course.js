@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const {teacherSchema} = require("../Models/teacher")
+const commentModel = require("./comment")
 
 const courseModel = mongoose.model("course" , {
     title: {
@@ -9,7 +10,7 @@ const courseModel = mongoose.model("course" , {
     teacher : {
         type: teacherSchema
     },
-    comment : [
+    comments : [
         {
             type : mongoose.Types.ObjectId,
             ref : "comment"
